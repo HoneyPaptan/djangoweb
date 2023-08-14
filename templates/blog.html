@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+<div class="wrappper">
+    <div class="sect">
+        <img src='/media/{{details.image}}' alt="blogimage">
+        <h1>{{details.title}}</h1>
+        <b>{{details.created_on}}</b>
+        <p>{{details.slug}}</p>
+        <p>{{details.content}}</p>
+    </div>
+</div>
+{% endblock content %}

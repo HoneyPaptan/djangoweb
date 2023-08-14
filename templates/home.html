@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
+<style>
+ 
+.imageblog img{
+    width: 100%;
+    
+    height: 60vh;
+    object-fit: fill;
+}
+.blog-holder{
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:20px;
+}
+.blog{
+    width: 40%;
+    text-decoration: none;
+    color:black;
+}
+.main{
+    margin-top:20vh;
+}
+.image img{
+    width: 100%;
+    height:80vh;
+}
+
+</style>
+{% endblock css %}
+
+
+{% block content %} 
+<div class="container">
+    {% for x in mainedit %}
+        <h3>{{x.title_of_the_site}}</h3>
+        <div class="hero">
+            <a href="/blogs/"><div class="image"><img src='/media/{{x.site_image}}' alt="siteimage" loading="lazy"></div></a>
+            
+        </div>
+    {% endfor %}
+    
+</div>
+
+<section class="main">
+    <div class="wrap">
+        <div class="box">
+            <div class="blog-holder">
+                {% for i in blog %}
+                <a href="/blog/{{i.slug}}" class="blog">
+                    <div class="blogg">
+                        <div class="imageblog">
+                            {% load static %}
+                            <img src='/media/{{i.image}}' alt="image" loading="lazy">
+                            
+                        </div>
+                        <div class="contents">
+                            <h3>{{i.title}}</h3>
+
+                        
+                        </div>
+                    </div>
+                </a>
+                
+                {% endfor %}
+              
+               
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

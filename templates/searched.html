@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+<img src='/media/{{searched.image}}' alt="image" loading="lazy">
+<h1>{{searched.title}}</h1>
+<b>{{searched.created_on}}</b>
+<p>{{searched.content}}</p>
+{% endblock content %}
